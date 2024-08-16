@@ -5,11 +5,12 @@
 #endif
 #define _inc_progress_key_
 
+// no need to use y_bit or y_va (option)
 #tryinclude <YSI_Data\y_bit>
 #tryinclude <YSI_Coding\y_va>
 
 #if !defined _INC_open_mp
-    #tryinclude <YSF>
+    #tryinclude <YSF> // this is required for samp-stdlib
 
     #if !defined _YSF_included
         #error The YSF plugin is required
@@ -186,7 +187,7 @@ public Progress_TimerG(playerid)
     }
     
     format(func_call, _, "prog_%s", a_ProgressFunction[playerid]);
-    CallRemoteFunction(func_call, "dd", playerid, 0);
+    CallRemoteFunction(func_call, "dd", playerid, 0); // success will be 0
 
     Progress_Reset(playerid);
     return 1;
@@ -281,14 +282,14 @@ public OnPlayerKeyStateChange(playerid, KEY:newkeys, KEY:oldkeys)
         {
             new 
                 Float:width, Float:height, 
-                Float:press_range = 47.0 + (a_ProgressRenderPos[playerid] - MIN_PROGRESS_POS); // phạm vi nhỏ nhất để nhấn
+                Float:press_range = 47.0 + (a_ProgressRenderPos[playerid] - MIN_PROGRESS_POS);
 
             new func_call[36];
             format(func_call, _, "prog_%s", a_ProgressFunction[playerid]);
 
             PlayerTextDrawGetTextSize(playerid, txd_ProgressPlayer[playerid][2], width, height);
             
-            if (press_range <= width <= (press_range + 10.0)) // phạm vi có thể nhấn trong khoảng 10.0
+            if (press_range <= width <= (press_range + 10.0)) // range of progress bar
                 CallRemoteFunction(func_call, "dd", playerid, 1);
             else 
                 CallRemoteFunction(func_call, "dd", playerid, 0);
