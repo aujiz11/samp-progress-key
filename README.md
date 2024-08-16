@@ -31,7 +31,7 @@ Happy Pawning!
 Simply install to your project:
 
 ```bash
-sampctl package install aujiz11/samp-progress-key
+sampctl install aujiz11/samp-progress-key
 ```
 
 Include in your code and begin using the library:
@@ -56,15 +56,6 @@ Progress_Show(playerid, interval, function, const message[], ...)
 Progress:function_name(playerid, success)
 ```
 
-## Testing
+## Credits
 
-<!--
-Depending on whether your package is tested via in-game "demo tests" or
-y_testing unit-tests, you should indicate to readers what to expect below here.
--->
-
-To test, simply run the package:
-
-```bash
-sampctl package run
-```
+[aujiz11](https://github.com/aujiz11)
