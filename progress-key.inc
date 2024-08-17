@@ -27,6 +27,22 @@
     #if !defined KEY
         #define KEY: _:
     #endif
+
+    #if !defined TextDrawColour
+        #define TextDrawColour TextDrawColor
+    #endif
+
+    #if !defined TextDrawBackgroundColour
+        #define TextDrawBackgroundColour TextDrawBackgroundColor
+    #endif
+
+    #if !defined PlayerTextDrawColour
+        #define PlayerTextDrawColour PlayerTextDrawColor
+    #endif
+
+    #if !defined PlayerTextDrawBackgroundColour
+        #define PlayerTextDrawBackgroundColour PlayerTextDrawBackgroundColor
+    #endif
 #endif
 
 #define Progress_Key(%0) \
